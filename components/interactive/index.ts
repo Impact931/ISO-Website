@@ -1,2 +1,6 @@
 export { FocusSlider } from './FocusSlider'
 export { ScrollTimeline } from './ScrollTimeline'
+export { SafetyBadges } from './SafetyBadges'
+export { ProfitSimulator } from './ProfitSimulator'
+export { StyleSelector } from './StyleSelector'
+export { EarningsCalculator } from './EarningsCalculator'
