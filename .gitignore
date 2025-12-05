@@ -1,8 +1,46 @@
+# Dependencies
 node_modules
-.env
-.claude/cache
-*.log
-dist/
-build/
-.DS_Store
+.pnp
+.pnp.js
+
+# Testing
 coverage/
+
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# Production
+build
+
+# Misc
+.DS_Store
+*.pem
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Local env files
+.env
+.env*.local
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Claude
+.claude/cache

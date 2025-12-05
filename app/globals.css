@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* ISO Brand Colors as CSS Variables */
+    --brand-black: #000000;
+    --brand-off-black: #0A0A0A;
+    --brand-white: #FFFFFF;
+    --brand-gold: #bfa863;
+    --brand-red: #c40a0a;
+    --brand-gray: #262626;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-brand-black text-brand-white font-body antialiased;
+  }
+
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  /* Focus states for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-brand-gold ring-offset-2 ring-offset-brand-black;
+  }
+
+  /* Selection color */
+  ::selection {
+    @apply bg-brand-gold text-brand-black;
+  }
+}
+
+@layer components {
+  /* ISO Button Variants */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3
+           bg-brand-gold text-brand-black font-heading font-semibold
+           uppercase tracking-wider text-sm
+           transition-all duration-300 ease-out
+           hover:bg-brand-white hover:scale-105
+           active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3
+           border-2 border-brand-gold text-brand-gold font-heading font-semibold
+           uppercase tracking-wider text-sm
+           transition-all duration-300 ease-out
+           hover:bg-brand-gold hover:text-brand-black;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center px-6 py-3
+           bg-brand-red text-brand-white font-heading font-semibold
+           uppercase tracking-wider text-sm
+           transition-all duration-300 ease-out
+           hover:brightness-110;
+  }
+
+  /* Card Styles */
+  .card {
+    @apply bg-brand-offBlack border border-brand-gray/30
+           rounded-lg overflow-hidden
+           transition-all duration-300
+           hover:border-brand-gold/50;
+  }
+
+  /* Section Containers */
+  .section {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Hero Grid Panel */
+  .hero-panel {
+    @apply relative flex-1 min-h-[50vh] md:min-h-screen
+           overflow-hidden cursor-pointer
+           transition-all duration-500 ease-out;
+  }
+
+  .hero-panel:hover {
+    @apply flex-[3];
+  }
+
+  .hero-panel-content {
+    @apply absolute inset-0 flex flex-col justify-end p-6 md:p-8
+           bg-gradient-to-t from-brand-black/90 via-brand-black/40 to-transparent;
+  }
+
+  /* Scrollytelling Timeline */
+  .timeline-line {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
+
+  .timeline-line.animate {
+    animation: drawLine 1.5s ease-out forwards;
+  }
+
+  /* Focus Slider */
+  .focus-slider-container {
+    @apply relative overflow-hidden rounded-lg;
+  }
+
+  .focus-slider-handle {
+    @apply absolute top-0 bottom-0 w-1 bg-brand-gold cursor-ew-resize
+           flex items-center justify-center z-10;
+  }
+
+  .focus-slider-handle::before {
+    @apply content-[''] absolute w-10 h-10 rounded-full
+           bg-brand-gold border-4 border-brand-white
+           shadow-lg;
+  }
+}
+
+@layer utilities {
+  /* Text gradient for headings */
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-brand-gold via-yellow-300 to-brand-gold
+           bg-clip-text text-transparent;
+  }
+
+  /* Cinematic overlay */
+  .overlay-cinematic {
+    @apply bg-gradient-to-b from-brand-black/60 via-transparent to-brand-black/80;
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply bg-brand-black/40 backdrop-blur-md border border-brand-white/10;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Aspect ratios from design guide */
+  .aspect-hero-vertical {
+    aspect-ratio: 9 / 16;
+  }
+
+  .aspect-hero-landscape {
+    aspect-ratio: 21 / 9;
+  }
+
+  .aspect-profile-card {
+    aspect-ratio: 4 / 5;
+  }
+}
